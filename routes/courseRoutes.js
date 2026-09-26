@@ -8,11 +8,11 @@ const {
     deleteCourse
 } = require('../controllers/courseController')
 
-// Prefix endpoint: /api/v1/courses
-router.post('/', createCourse)             // POST /api/v1/courses
-router.get('/', getCourses)               // GET /api/v1/courses
-router.get('/:id', getCourseById)         // GET /api/v1/courses/:id
-router.patch('/:id', updateCourse)        // PATCH /api/v1/courses/:id
-router.delete('/:id', deleteCourse)       // DELETE /api/v1/courses/:id
+
+router.post('/', createCourse)           
+router.get('/', getCourses)               
+router.get('/:id', getCourseById)         
+router.patch('/:id', updateCourse)       
+router.delete('/:id', deleteCourse)      
 
 module.exports = router
