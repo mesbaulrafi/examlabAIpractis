@@ -19,11 +19,9 @@ exports.createCourse = async (req, res) => {
 
     const existingCourse = await Course.findOne({ title, category });
     if (existingCourse) {
-      return res
-        .status(400)
-        .json({
-          message: "Course with same title and category already exists",
-        });
+      return res.status(400).json({
+        message: "Course with same title and category already exists",
+      });
     }
 
     const course = new Course({
@@ -57,6 +55,7 @@ exports.getCourseById = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ message: "Invalid Course ID" });
   }
+  
   try {
     const course = await Course.findById(id);
     if (!course) return res.status(404).json({ message: "Course not found" });
