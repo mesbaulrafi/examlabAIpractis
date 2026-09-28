@@ -3,7 +3,7 @@ const Course = require("../models/courseModel");
 const mongoose = require("mongoose");
 
 // Create Student
-exports.createStudent = async (req, res) => {
+const createStudent = async (req, res) => {
   try {
     const { name, email, phone, age } = req.body;
 
@@ -20,7 +20,7 @@ exports.createStudent = async (req, res) => {
 };
 
 // Get All Students
-exports.getStudents = async (req, res) => {
+const getStudents = async (req, res) => {
   try {
     const students = await Student.find();
     res.status(200).json(students);
@@ -30,7 +30,7 @@ exports.getStudents = async (req, res) => {
 };
 
 // Get Single Student
-exports.getStudentById = async (req, res) => {
+const getStudentById = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ message: "Invalid Student ID" });
@@ -45,7 +45,7 @@ exports.getStudentById = async (req, res) => {
 };
 
 // Update Student
-exports.updateStudent = async (req, res) => {
+const updateStudent = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ message: "Invalid Student ID" });
@@ -61,7 +61,7 @@ exports.updateStudent = async (req, res) => {
 };
 
 // Delete Student
-exports.deleteStudent = async (req, res) => {
+const deleteStudent = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ message: "Invalid Student ID" });
@@ -84,7 +84,7 @@ exports.deleteStudent = async (req, res) => {
 };
 
 // Enrollment Logic (5. Enrollment Requirements)
-exports.enrollStudent = async (req, res) => {
+const enrollStudent = async (req, res) => {
   const { studentId, courseId } = req.body;
 
   if (
@@ -125,7 +125,7 @@ exports.enrollStudent = async (req, res) => {
 };
 
 // Populate Logic (6. Populate Requirements)
-exports.getEnrolledCourses = async (req, res) => {
+const getEnrolledCourses = async (req, res) => {
   const { studentId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(studentId)) {
@@ -142,3 +142,6 @@ exports.getEnrolledCourses = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+module.exports = {createStudent,getStudents,getStudentById,updateStudent,deleteStudent,enrollStudent,getEnrolledCourses}
