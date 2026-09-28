@@ -83,7 +83,7 @@ const deleteStudent = async (req, res) => {
   }
 };
 
-// Enrollment Logic (5. Enrollment Requirements)
+// Enrollment Logic 
 const enrollStudent = async (req, res) => {
   const { studentId, courseId } = req.body;
 
