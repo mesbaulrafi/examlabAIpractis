@@ -83,7 +83,7 @@ const deleteStudent = async (req, res) => {
   }
 };
 
-// Enrollment Logic 
+// Enrollment Logic
 const enrollStudent = async (req, res) => {
   const { studentId, courseId } = req.body;
 
@@ -143,5 +143,12 @@ const getEnrolledCourses = async (req, res) => {
   }
 };
 
-
-module.exports = {createStudent,getStudents,getStudentById,updateStudent,deleteStudent,enrollStudent,getEnrolledCourses}
+module.exports = {
+  createStudent,
+  getStudents,
+  getStudentById,
+  updateStudent,
+  deleteStudent,
+  enrollStudent,
+  getEnrolledCourses,
+};
