@@ -124,7 +124,7 @@ const enrollStudent = async (req, res) => {
   }
 };
 
-// Populate Logic (6. Populate Requirements)
+// Populate Logic 
 const getEnrolledCourses = async (req, res) => {
   const { studentId } = req.params;
 
