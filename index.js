@@ -15,7 +15,7 @@ app.use('/api/v1/students', studentRoute)
 app.use('/api/v1/courses', courseRoute)
 
 
-let PORT = process.env.PORT || 3000
+let PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
